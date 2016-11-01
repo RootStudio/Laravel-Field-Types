@@ -50,7 +50,7 @@ class RootFormServiceProvider extends ServiceProvider
      */
     private function registerViews()
     {
-        $this->loadViewsFrom(__DIR__ . '/resources/views/', 'rootforms');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views/', 'rootforms');
     }
 
     /**
