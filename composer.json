@@ -1,0 +1,24 @@
+{  
+   "name":"rootstudio/laravel-field-types",
+   "description":"Simple form builder package for creating reusable input fields in Laravel",
+   "type":"library",
+   "homepage":"https://github.com/RootStudio/Laravel-Field-Types",
+   "authors":[  
+      {  
+         "name":"James Wigger",
+         "email":"james@rootstudio.co.uk"
+      }
+   ],
+   "support":{  
+      "email":"james@rootstudio.co.uk",
+      "issues":"https://github.com/RootStudio/Laravel-Field-Types/issues"
+   },
+   "require":{  
+
+   },
+   "autoload":{  
+      "psr-4":{  
+         "RootStudio\\RootForms\\":"src"
+      }
+   }
+}
