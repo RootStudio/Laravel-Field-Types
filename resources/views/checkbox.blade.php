@@ -4,7 +4,7 @@
     @foreach($options as $optValue => $optLabel)
         <div class="form-check">
             <label class="form-check-label">
-                <input type="{{ $type }}" class="form-check-input {{ $class }}" id="{{ $id }}_{{ $loop->iteration }}" name="{{ $name }}" value="{{ $optValue }}" @if(in_array($optValue, $value)) checked="checked" @endif />
+                <input type="{{ $type }}" class="form-check-input {{ $class }}" id="{{ $id }}_{{ $loop->iteration }}" name="{{ $name }}[]" value="{{ $optValue }}" @if(in_array($optValue, $value)) checked="checked" @endif />
                 {{ $optLabel }}
             </label>
         </div>

@@ -16,18 +16,6 @@ class CheckboxFieldType extends OptionsFieldType
     protected $type = 'checkbox';
 
     /**
-     * Set the name attribute
-     *
-     * @param string $name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        return parent::setName($name . '[]');
-    }
-
-    /**
      * Return the view for the field
      *
      * @return string
