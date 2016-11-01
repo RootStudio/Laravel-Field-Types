@@ -1,9 +1,9 @@
-<?php namespace App\RootForms\FieldTypes;
+<?php namespace RootStudio\RootForms\FieldTypes;
 
 /**
  * Class ToggleFieldType
  *
- * @package App\RootForms\FieldTypes
+ * @package RootStudio\RootForms\FieldTypes
  * @author James Wigger <james@rootstudio.co.uk>
  */
 class ToggleFieldType extends OptionsFieldType

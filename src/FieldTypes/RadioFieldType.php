@@ -1,9 +1,9 @@
-<?php namespace App\RootForms\FieldTypes;
+<?php namespace RootStudio\RootForms\FieldTypes;
 
 /**
  * Class RadioFieldType
  *
- * @package App\RootForms\FieldTypes
+ * @package RootStudio\RootForms\FieldTypes
  * @author James Wigger <james@rootstudio.co.uk>
  */
 class RadioFieldType extends OptionsFieldType

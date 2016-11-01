@@ -1,15 +1,15 @@
-<?php namespace App\RootForms;
+<?php namespace RootStudio\RootForms;
 
-use App\RootForms\FieldTypes\CheckboxFieldType;
-use App\RootForms\FieldTypes\RadioFieldType;
-use App\RootForms\FieldTypes\SelectFieldType;
-use App\RootForms\FieldTypes\TextFieldType;
-use App\RootForms\FieldTypes\ToggleFieldType;
+use RootStudio\RootForms\FieldTypes\CheckboxFieldType;
+use RootStudio\RootForms\FieldTypes\RadioFieldType;
+use RootStudio\RootForms\FieldTypes\SelectFieldType;
+use RootStudio\RootForms\FieldTypes\TextFieldType;
+use RootStudio\RootForms\FieldTypes\ToggleFieldType;
 
 /**
  * Class RootFormFactory
  *
- * @package App\RootForms
+ * @package RootStudio\RootForms
  * @author James Wigger <james@rootstudio.co.uk>
  */
 class RootFormFactory

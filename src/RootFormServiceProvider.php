@@ -1,11 +1,11 @@
-<?php namespace App\RootForms;
+<?php namespace RootStudio\RootForms;
 
 use Illuminate\Support\ServiceProvider;
 
 /**
  * Class RootFormServiceProvider
  *
- * @package App\RootForms
+ * @package RootStudio\RootForms
  * @author James Wigger <james@rootstudio.co.uk>
  */
 class RootFormServiceProvider extends ServiceProvider

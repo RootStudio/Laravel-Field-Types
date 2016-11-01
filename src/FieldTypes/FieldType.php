@@ -1,11 +1,11 @@
-<?php namespace App\RootForms\FieldTypes;
+<?php namespace RootStudio\RootForms\FieldTypes;
 
 use InvalidArgumentException;
 
 /**
  * Class FieldType
  *
- * @package App\RootForms\FieldTypes
+ * @package RootStudio\RootForms\FieldTypes
  * @author James Wigger <james@rootstudio.co.uk>
  */
 abstract class FieldType

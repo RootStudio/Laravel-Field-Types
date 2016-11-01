@@ -1,9 +1,9 @@
-<?php namespace App\RootForms\FieldTypes;
+<?php namespace RootStudio\RootForms\FieldTypes;
 
 /**
  * Class TextFieldType
  *
- * @package App\RootForms\FieldTypes
+ * @package RootStudio\RootForms\FieldTypes
  * @author James Wigger <james@rootstudio.co.uk>
  */
 class CheckboxFieldType extends OptionsFieldType
