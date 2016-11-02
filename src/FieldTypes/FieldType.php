@@ -112,7 +112,11 @@ abstract class FieldType
      */
     public function setID($id)
     {
-        $this->id = str_slug($id, '_') . '_' . self::$uid++;
+        $uid = self::$uid;
+
+        $this->id = str_slug($id, '_') . '_' . $uid;
+
+        self::$uid++;
 
         return $this;
     }
@@ -141,7 +145,7 @@ abstract class FieldType
     public function setType($type)
     {
         if (!in_array($type, $this->allowedTypes())) {
-            throw new InvalidArgumentException(sprintf('Invalid field type "%s"'));
+            throw new InvalidArgumentException(sprintf('Invalid field type "%s"', $type));
         }
 
         $this->type = $type;
@@ -268,8 +272,8 @@ abstract class FieldType
     {
         $str = '';
 
-        $booleans = array_only($this->attributes, $this->booleanAttributes);
-        $standard = array_except($this->attributes, $this->booleanAttributes);
+        $booleans = array_only($this->getAttributes(), $this->booleanAttributes);
+        $standard = array_except($this->getAttributes(), $this->booleanAttributes);
 
         foreach ($standard as $attribute => $value) {
             $str .= sprintf('%s="%s" ', $attribute, $value);
@@ -282,6 +286,16 @@ abstract class FieldType
         }
 
         return $str;
+    }
+
+    /**
+     * Return attributes set on field
+     *
+     * @return array
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
     }
 
     /**
