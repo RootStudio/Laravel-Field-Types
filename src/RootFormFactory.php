@@ -1,6 +1,7 @@
 <?php namespace RootStudio\RootForms;
 
 use RootStudio\RootForms\FieldTypes\CheckboxFieldType;
+use RootStudio\RootForms\FieldTypes\FileFieldType;
 use RootStudio\RootForms\FieldTypes\RadioFieldType;
 use RootStudio\RootForms\FieldTypes\SelectFieldType;
 use RootStudio\RootForms\FieldTypes\TextFieldType;
@@ -86,17 +87,33 @@ class RootFormFactory
      *
      * @param string $id
      * @param string $label
-     * @param string $value
      * @param string $class
      * @param array  $attributes
      *
      * @return string
      */
-    public function password($id, $label, $value = '', $class = '', array $attributes = [])
+    public function password($id, $label, $class = '', array $attributes = [])
     {
         return $this->field($id, $label, 'password')
             ->setClass($class)
-            ->setValue($value)
+            ->setAttributes($attributes)
+            ->render();
+    }
+
+    /**
+     * Create new file field
+     *
+     * @param string $id
+     * @param string $label
+     * @param string $class
+     * @param array  $attributes
+     *
+     * @return string
+     */
+    public function file($id, $label, $class = '', array $attributes = [])
+    {
+        return $this->field($id, $label, 'file')
+            ->setClass($class)
             ->setAttributes($attributes)
             ->render();
     }
@@ -229,11 +246,18 @@ class RootFormFactory
                 $field = new ToggleFieldType();
                 $type = 'checkbox';
                 break;
+            case 'file':
+                $field = new FileFieldType();
+                break;
             case 'text':
+            case 'tel':
             case 'email':
             case 'password':
+                $field = new TextFieldType();
+                break;
             default:
                 $field = new TextFieldType();
+                $type = 'text';
                 break;
         }
 
