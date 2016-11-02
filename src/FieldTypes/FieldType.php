@@ -6,7 +6,7 @@ use InvalidArgumentException;
  * Class FieldType
  *
  * @package RootStudio\RootForms\FieldTypes
- * @author James Wigger <james@rootstudio.co.uk>
+ * @author  James Wigger <james@rootstudio.co.uk>
  */
 abstract class FieldType
 {
@@ -234,7 +234,7 @@ abstract class FieldType
     public function setView($view)
     {
         if (!view()->exists($view)) {
-            throw new InvalidArgumentException(sprintf('The view "%s" does not exists'));
+            throw new InvalidArgumentException(sprintf('The view "%s" does not exists', $view));
         }
 
         $this->view = $view;
@@ -280,12 +280,14 @@ abstract class FieldType
         }
 
         foreach ($booleans as $bool => $value) {
-            if (!$value) continue;
+            if (!$value) {
+                continue;
+            }
 
             $str .= $bool . ' ';
         }
 
-        return $str;
+        return trim($str);
     }
 
     /**
@@ -319,7 +321,7 @@ abstract class FieldType
      */
     public function render()
     {
-        return view($this->getView())->with($this->getData());
+        return view($this->getView())->with($this->getData())->render();
     }
 
     /**
@@ -342,4 +344,14 @@ abstract class FieldType
      * @return array
      */
     abstract protected function additionalData();
+
+    /**
+     * Get the string contents of the field
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->render();
+    }
 }
