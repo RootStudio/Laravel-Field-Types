@@ -9,6 +9,13 @@
 class SelectFieldType extends OptionsFieldType
 {
     /**
+     * Field type
+     *
+     * @var string
+     */
+    protected $type = 'select';
+
+    /**
      * Return the view for the field
      *
      * @return string

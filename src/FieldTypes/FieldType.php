@@ -104,6 +104,18 @@ abstract class FieldType
     protected static $uid = 1;
 
     /**
+     * FieldType constructor.
+     *
+     * @param string $type
+     */
+    public function __construct($type = null)
+    {
+        if ($type) {
+            $this->setType($type);
+        }
+    }
+
+    /**
      * Set the ID attribute
      *
      * @param string $id

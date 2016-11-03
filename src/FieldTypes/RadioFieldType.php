@@ -13,7 +13,7 @@ class RadioFieldType extends OptionsFieldType
      *
      * @var string
      */
-    protected $type = 'checkbox';
+    protected $type = 'radio';
 
     /**
      * Return the view for the field

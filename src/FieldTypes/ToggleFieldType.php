@@ -6,7 +6,7 @@
  * @package RootStudio\RootForms\FieldTypes
  * @author James Wigger <james@rootstudio.co.uk>
  */
-class ToggleFieldType extends OptionsFieldType
+class ToggleFieldType extends FieldType
 {
     /**
      * Field type
@@ -33,5 +33,15 @@ class ToggleFieldType extends OptionsFieldType
     protected function allowedTypes()
     {
         return ['checkbox'];
+    }
+
+    /**
+     * Additional data to be returned to the view
+     *
+     * @return array
+     */
+    protected function additionalData()
+    {
+        return [];
     }
 }

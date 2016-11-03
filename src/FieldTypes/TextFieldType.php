@@ -9,6 +9,13 @@
 class TextFieldType extends FieldType
 {
     /**
+     * Field type
+     *
+     * @var string
+     */
+    protected $type = 'text';
+
+    /**
      * Return the view for the field
      *
      * @return string

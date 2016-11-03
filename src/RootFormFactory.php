@@ -1,7 +1,9 @@
 <?php namespace RootStudio\RootForms;
 
 use RootStudio\RootForms\FieldTypes\CheckboxFieldType;
+use RootStudio\RootForms\FieldTypes\FieldType;
 use RootStudio\RootForms\FieldTypes\FileFieldType;
+use RootStudio\RootForms\FieldTypes\OptionsFieldType;
 use RootStudio\RootForms\FieldTypes\RadioFieldType;
 use RootStudio\RootForms\FieldTypes\SelectFieldType;
 use RootStudio\RootForms\FieldTypes\TextFieldType;
@@ -11,7 +13,7 @@ use RootStudio\RootForms\FieldTypes\ToggleFieldType;
  * Class RootFormFactory
  *
  * @package RootStudio\RootForms
- * @author James Wigger <james@rootstudio.co.uk>
+ * @author  James Wigger <james@rootstudio.co.uk>
  */
 class RootFormFactory
 {
@@ -232,38 +234,10 @@ class RootFormFactory
      */
     public function field($id, $label, $type = 'text')
     {
-        switch ($type) {
-            case 'select':
-                $field = new SelectFieldType();
-                break;
-            case 'checkbox':
-                $field = new CheckboxFieldType();
-                break;
-            case 'radio':
-                $field = new RadioFieldType();
-                break;
-            case 'toggle':
-                $field = new ToggleFieldType();
-                $type = 'checkbox';
-                break;
-            case 'file':
-                $field = new FileFieldType();
-                break;
-            case 'text':
-            case 'tel':
-            case 'email':
-            case 'password':
-                $field = new TextFieldType();
-                break;
-            default:
-                $field = new TextFieldType();
-                $type = 'text';
-                break;
-        }
+        $field = $this->getFieldClass($type);
 
         $field->setID($id)
             ->setName($id)
-            ->setType($type)
             ->setLabel($label)
             ->setHelp($this->getHelpText());
 
@@ -278,6 +252,41 @@ class RootFormFactory
     public function hint($text)
     {
         $this->helpText = $text;
+    }
+
+    /**
+     * Returns class instance for type
+     *
+     * @param string $type
+     *
+     * @return FieldType|OptionsFieldType
+     */
+    protected function getFieldClass($type)
+    {
+        $map = [
+            'checkbox' => CheckboxFieldType::class,
+            'file'     => FileFieldType::class,
+            'radio'    => RadioFieldType::class,
+            'select'   => SelectFieldType::class,
+            'text'     => TextFieldType::class,
+            'tel'      => TextFieldType::class,
+            'email'    => TextFieldType::class,
+            'password' => TextFieldType::class,
+            'toggle'   => ToggleFieldType::class
+        ];
+
+        if (!array_key_exists($type, $map)) {
+            return new TextFieldType('text');
+        }
+
+        $class = $map[$type];
+
+        // Special snowflake
+        if($type === 'toggle') {
+            $type = 'checkbox';
+        }
+
+        return new $class($type);
     }
 
     /**

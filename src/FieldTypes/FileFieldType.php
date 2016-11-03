@@ -9,6 +9,13 @@
 class FileFieldType extends FieldType
 {
     /**
+     * Field type
+     *
+     * @var string
+     */
+    protected $type = 'file';
+
+    /**
      * Return the view for the field
      *
      * @return string
