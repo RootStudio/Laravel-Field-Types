@@ -83,6 +83,13 @@ Boolean fields do not take additional options, only true or false:
 {!! RootForms::confirm('terms_agreement', 'Have you read the terms & conditions?', old('terms_agreement')) !!}
 ```
 
+If you need to set some help text, for example to let users know what data can be entered into a field, the `hint()` method can be called before the field.
+
+```blade
+{!! RootForms::hint('Files must be png, jpg or gif. Files cannot exceed 2mb in size.') !!}
+{!! RootForms::file('avatar', 'Profile photo') !!}
+```
+
 ## Customising
 
 The package templates are built for Bootstrap v4. If you wish to customise these and use your own styling and classes the views can be published using artisan: 
