@@ -5,6 +5,7 @@ use RootStudio\RootForms\FieldTypes\CheckboxFieldType;
 use RootStudio\RootForms\FieldTypes\FileFieldType;
 use RootStudio\RootForms\FieldTypes\RadioFieldType;
 use RootStudio\RootForms\FieldTypes\SelectFieldType;
+use RootStudio\RootForms\FieldTypes\TextAreaFieldType;
 use RootStudio\RootForms\FieldTypes\TextFieldType;
 use RootStudio\RootForms\FieldTypes\ToggleFieldType;
 use RootStudio\RootForms\RootFormFactory;
@@ -229,6 +230,9 @@ class RootFormFactoryTest extends TestCase
     {
         $field = $this->formFactory->field('field_id', 'field_label', 'text');
         $this->assertInstanceOf(TextFieldType::class, $field);
+
+        $field = $this->formFactory->field('field_id', 'field_label', 'textarea');
+        $this->assertInstanceOf(TextAreaFieldType::class, $field);
 
         $field = $this->formFactory->field('field_id', 'field_label', 'email');
         $this->assertInstanceOf(TextFieldType::class, $field);
