@@ -48,6 +48,22 @@ class RootFormFactoryTest extends TestCase
      * @test
      * @group factory
      */
+    function it_will_return_a_rendered_textarea_field()
+    {
+        $html = $this->formFactory->textarea('field_id', 'field_label', 'field_value', 'field_class');
+
+        $this->assertInternalType('string', $html);
+        $this->assertContains('field_id', $html);
+        $this->assertContains('field_label', $html);
+        $this->assertContains('field_value', $html);
+        $this->assertContains('field_class', $html);
+        $this->assertContains('text', $html);
+    }
+
+    /**
+     * @test
+     * @group factory
+     */
     function it_will_return_a_rendered_email_field()
     {
         $html = $this->formFactory->email('field_id', 'field_label', 'field_value', 'field_class');
@@ -251,6 +267,7 @@ class RootFormFactoryTest extends TestCase
     {
         $app['config']->set('view.paths', [__DIR__ . '/Stubs/views']);
         $app['config']->set('rootforms.views.text', 'stub');
+        $app['config']->set('rootforms.views.textarea', 'stub');
         $app['config']->set('rootforms.views.select', 'stub');
         $app['config']->set('rootforms.views.checkbox', 'stub');
         $app['config']->set('rootforms.views.radio', 'stub');

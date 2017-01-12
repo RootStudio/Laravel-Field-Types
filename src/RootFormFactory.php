@@ -6,6 +6,7 @@ use RootStudio\RootForms\FieldTypes\FileFieldType;
 use RootStudio\RootForms\FieldTypes\OptionsFieldType;
 use RootStudio\RootForms\FieldTypes\RadioFieldType;
 use RootStudio\RootForms\FieldTypes\SelectFieldType;
+use RootStudio\RootForms\FieldTypes\TextAreaFieldType;
 use RootStudio\RootForms\FieldTypes\TextFieldType;
 use RootStudio\RootForms\FieldTypes\ToggleFieldType;
 
@@ -38,6 +39,26 @@ class RootFormFactory
     public function text($id, $label, $value = '', $class = '', array $attributes = [])
     {
         return $this->field($id, $label)
+            ->setClass($class)
+            ->setValue($value)
+            ->setAttributes($attributes)
+            ->render();
+    }
+
+    /**
+     * Create new textarea field
+     *
+     * @param string $id
+     * @param string $label
+     * @param string $value
+     * @param string $class
+     * @param array  $attributes
+     *
+     * @return string
+     */
+    public function textarea($id, $label, $value = '', $class = '', array $attributes = [])
+    {
+        return $this->field($id, $label, 'textarea')
             ->setClass($class)
             ->setValue($value)
             ->setAttributes($attributes)
@@ -269,6 +290,7 @@ class RootFormFactory
             'radio'    => RadioFieldType::class,
             'select'   => SelectFieldType::class,
             'text'     => TextFieldType::class,
+            'textarea' => TextAreaFieldType::class,
             'tel'      => TextFieldType::class,
             'email'    => TextFieldType::class,
             'password' => TextFieldType::class,

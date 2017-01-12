@@ -27,6 +27,7 @@ abstract class TestCase extends OrchestraTestCase
     {
         $app['config']->set('view.paths', [__DIR__ . '/Stubs/views']);
         $app['config']->set('rootforms.views.text', 'test::text');
+        $app['config']->set('rootforms.views.textarea', 'test::textarea');
         $app['config']->set('rootforms.views.select', 'test::select');
         $app['config']->set('rootforms.views.checkbox', 'test::checkbox');
         $app['config']->set('rootforms.views.radio', 'test::radio');

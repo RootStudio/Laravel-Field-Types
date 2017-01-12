@@ -5,6 +5,7 @@ use RootStudio\RootForms\FieldTypes\CheckboxFieldType;
 use RootStudio\RootForms\FieldTypes\FileFieldType;
 use RootStudio\RootForms\FieldTypes\RadioFieldType;
 use RootStudio\RootForms\FieldTypes\SelectFieldType;
+use RootStudio\RootForms\FieldTypes\TextAreaFieldType;
 use RootStudio\RootForms\FieldTypes\TextFieldType;
 use RootStudio\RootForms\FieldTypes\ToggleFieldType;
 
@@ -138,6 +139,34 @@ class FieldTypeDefaultsTest extends TestCase
         $fieldType = new TextFieldType();
 
         foreach(['text', 'email', 'tel', 'password'] as $type) {
+            $fieldType->setType($type);
+            $data = $fieldType->getData();
+
+            $this->assertArrayHasKey('type', $data);
+            $this->assertEquals($type, $data['type']);
+        }
+    }
+
+    /**
+     * @test
+     */
+    function textarea_field_will_return_default_view_from_config()
+    {
+        $fieldType = new TextAreaFieldType();
+
+        $view = $fieldType->getView();
+
+        $this->assertEquals('test::textarea', $view);
+    }
+
+    /**
+     * @test
+     */
+    function textarea_field_will_only_allow_set_types()
+    {
+        $fieldType = new TextAreaFieldType();
+
+        foreach(['textarea'] as $type) {
             $fieldType->setType($type);
             $data = $fieldType->getData();
 
