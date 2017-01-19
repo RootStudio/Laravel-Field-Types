@@ -24,7 +24,10 @@
    "autoload":{  
       "psr-4":{  
          "RootStudio\\RootForms\\":"src"
-      }
+      },
+      "files": [
+         "Support/helpers.php"
+      ]
    },
    "autoload-dev": {
       "psr-4": {

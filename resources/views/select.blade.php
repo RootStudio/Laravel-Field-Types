@@ -9,9 +9,9 @@
         @endforeach
     </select>
 
-    @if ($errors->has($name))
+    @if ($errors->has(fieldNameToDot($name)))
         <div class="form-control-feedback">
-            <strong>{{ $errors->first($name) }}</strong>
+            <strong>{{ $errors->first(fieldNameToDot($name)) }}</strong>
         </div>
     @endif
 
