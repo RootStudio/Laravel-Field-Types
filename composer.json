@@ -26,7 +26,7 @@
          "RootStudio\\RootForms\\":"src"
       },
       "files": [
-         "Support/helpers.php"
+         "src/Support/helpers.php"
       ]
    },
    "autoload-dev": {

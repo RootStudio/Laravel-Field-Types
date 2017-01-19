@@ -25,5 +25,6 @@
         <log type="coverage-html" target="logs/coverage" charset="UTF-8" yui="true" highlight="true"/>
         <log type="coverage-text" target="logs/coverage.txt"/>
         <log type="coverage-clover" target="logs/logs/clover.xml"/>
+        <ini name="display_errors" value="true"/>
     </logging>
 </phpunit>
